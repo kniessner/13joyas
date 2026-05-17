@@ -1,0 +1,13 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Navigation Components
+// ──────────────────────────────────────────
+
+.wp-block-navigation ul {
+	list-style: none;
+}
+
+/* Mobile menu state managed by Interactivity API */
+.site-menu.is-open {
+	display: block;
+}

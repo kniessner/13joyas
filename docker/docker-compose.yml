@@ -1,0 +1,94 @@
+services:
+  wordpress:
+    image: wordpress:php8.3-apache
+    container_name: joyas-wp
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: joyas
+      WORDPRESS_DB_USER: joyas
+      WORDPRESS_DB_PASSWORD: joyaspass
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_MEMORY_LIMIT', '256M');
+        define('WP_MAX_MEMORY_LIMIT', '512M');
+        define('WP_POST_REVISIONS', 5);
+    volumes:
+      - wp_data:/var/www/html
+      - ../joyas-block-theme:/var/www/html/wp-content/themes/joyas-block-theme
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    depends_on:
+      - db
+    networks:
+      - joyas
+
+  cli:
+    image: wordpress:cli
+    container_name: joyas-cli
+    volumes:
+      - wp_data:/var/www/html
+      - ../joyas-block-theme:/var/www/html/wp-content/themes/joyas-block-theme
+      - ../bin:/project/bin
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: joyas
+      WORDPRESS_DB_USER: joyas
+      WORDPRESS_DB_PASSWORD: joyaspass
+      WORDPRESS_TABLE_PREFIX: wp_
+    depends_on:
+      - db
+    networks:
+      - joyas
+    profiles:
+      - cli
+
+  db:
+    image: mariadb:11
+    container_name: joyas-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: joyas
+      MYSQL_USER: joyas
+      MYSQL_PASSWORD: joyaspass
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - joyas
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: joyas-pma
+    restart: unless-stopped
+    ports:
+      - "8091:80"
+    platform: linux/amd64
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - db
+    networks:
+      - joyas
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: joyas-mail
+    restart: unless-stopped
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    networks:
+      - joyas
+
+volumes:
+  wp_data:
+  db_data:
+
+networks:
+  joyas:
+    driver: bridge

@@ -1,0 +1,8 @@
+// ──────────────────────────────────────────
+// Editor-only Styles
+// ──────────────────────────────────────────
+@use "tokens" as *;
+
+.editor-styles-wrapper {
+	font-family: $font-body;
+}

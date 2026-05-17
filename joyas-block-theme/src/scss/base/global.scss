@@ -1,0 +1,22 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Base / Global
+// ──────────────────────────────────────────
+
+/* Smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Ensure full-width blocks behave */
+body .alignfull {
+	margin-left: calc(-1 * var(--wp--style--root--padding-left, #{$space-s}));
+	margin-right: calc(-1 * var(--wp--style--root--padding-right, #{$space-s}));
+	width: calc(100% + var(--wp--style--root--padding-left, #{$space-s}) + var(--wp--style--root--padding-right, #{$space-s}));
+	max-width: none;
+}
+
+/* Prevent FOUC when loading */
+body {
+	opacity: 1;
+}

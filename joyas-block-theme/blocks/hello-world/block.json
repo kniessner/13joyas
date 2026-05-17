@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "joyas/hello-world",
+  "version": "0.1.0",
+  "title": "Hello World",
+  "category": "widgets",
+  "description": "A simple example dynamic block.",
+  "textDomain": "joyas",
+  "editorScript": "file:../../../dist/assets/js/editor.js",
+  "supports": {
+    "align": ["wide", "full"],
+    "html": false
+  },
+  "render": "file:./render.php"
+}

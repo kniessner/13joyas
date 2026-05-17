@@ -1,0 +1,29 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Process Steps (4-column grid)
+// ──────────────────────────────────────────
+
+// Clean number display for Beratung | Entwurf | Fertigung | Abholung
+.is-style-process-steps {
+	.wp-block-column {
+		position: relative;
+
+		&:not(:last-child)::after {
+			content: "";
+			position: absolute;
+			top: 2rem;
+			right: -1rem;
+			width: 1px;
+			height: 60%;
+			background: $color-sand;
+		}
+	}
+}
+
+@media (max-width: 781px) {
+	.is-style-process-steps .wp-block-column {
+		&:not(:last-child)::after {
+			display: none;
+		}
+	}
+}

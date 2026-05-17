@@ -1,0 +1,31 @@
+/**
+ * Core block overrides.
+ *
+ * Organize by block slug. WordPress loads only what's referenced by a block
+ * to keep CSS payload minimal.
+ */
+
+/* Post title: uppercase for headings */
+.wp-block-post-title {
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+/* Paragraph in hero */
+.wp-block-paragraph.is-style-large {
+	line-height: 1.6;
+}
+
+/* Query grid card hover */
+.wp-block-post-template .wp-block-group {
+	transition: box-shadow 0.3s ease;
+}
+
+.wp-block-post-template .wp-block-group:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Navigation: remove default list bullets */
+.wp-block-navigation ul {
+	list-style: none;
+}

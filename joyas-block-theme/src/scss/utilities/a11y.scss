@@ -1,0 +1,16 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Utility Classes
+// ──────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-group,
+	.wp-block-button__link,
+	.wp-block-post-template .wp-block-group {
+		transition: none !important;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+}

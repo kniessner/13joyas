@@ -1,0 +1,13 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Typography Overrides
+// ──────────────────────────────────────────
+
+.wp-block-post-title {
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.wp-block-paragraph.is-style-large {
+	line-height: 1.6;
+}

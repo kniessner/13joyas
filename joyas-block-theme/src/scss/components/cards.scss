@@ -1,0 +1,16 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Card / Grid Components
+// ──────────────────────────────────────────
+
+.wp-block-post-template .wp-block-group {
+	transition: box-shadow $transition-base;
+
+	&:hover {
+		box-shadow: 0 8px 24px rgba($color-obsidian, 0.08);
+	}
+}
+
+.wp-block-image img {
+	border-radius: 4px;
+}

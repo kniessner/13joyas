@@ -1,0 +1,24 @@
+<?xml version="1.0"?
+<ruleset name="Joyas">
+	<description>Joyas WordPress coding standards.</description>
+
+	<arg value="ps"/>
+
+	<!-- Paths to analyze -->
+	<file>./joyas-block-theme</file>
+
+	<!-- WordPress Extra and VIP Go -->
+	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-VIP-Go"/>
+
+	<!-- Exclude vendor and node_modules -->
+	<exclude-pattern>.*vendor/.*</exclude-pattern>
+	<exclude-pattern>.*node_modules/.*</exclude-pattern>
+	<exclude-pattern>.*dist/.*</exclude-pattern>
+
+	<!-- Use tabs for indentation in PHP/HTML -->
+	<arg name="tab-width" value="4"/>
+
+	<!-- Allow modern PHP -->
+	<config name="testVersion" value="8.3-"/>
+</ruleset>

@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+# Mark generated files as binary to avoid merge conflicts
+/dist/** binary
+/vendor/** binary
+/node_modules/** binary
+
+# WordPress core
+/wp-admin/** binary
+/wp-includes/** binary
+/wp-content/uploads/** binary

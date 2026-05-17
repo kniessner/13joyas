@@ -1,0 +1,28 @@
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	level: 6
+	phpVersion: 80300
+	paths:
+		- joyas-block-theme/functions.php
+		- joyas-block-theme/patterns
+		- joyas-block-theme/blocks
+		- joyas-block-theme/templates
+		- joyas-block-theme/includes
+	dynamicConstantNames:
+		- WP_DEBUG
+		- WP_DEBUG_LOG
+		- WP_DEBUG_DISPLAY
+		- SCRIPT_DEBUG
+		- WP_CACHE
+		- SAVEQUERIES
+		- ABSPATH
+		- WP_PLUGIN_DIR
+		- WPMU_PLUGIN_DIR
+		- WP_CONTENT_DIR
+		- WPINC
+		- WP_LANG_DIR
+	ignoreErrors:
+		# theme files allow direct access.
+		- '#\b(NoDirectAccess|NoDirectAccessAllowed)\b#'

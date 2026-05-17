@@ -1,0 +1,12 @@
+@use "../tokens" as *;
+// ──────────────────────────────────────────
+// Button Components
+// ──────────────────────────────────────────
+
+.wp-block-button__link {
+	transition: opacity $transition-base;
+
+	&:hover {
+		opacity: 0.9;
+	}
+}

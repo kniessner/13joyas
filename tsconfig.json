@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "allowJs": false,
+    "declaration": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@styles/*": ["joyas-block-theme/src/scss/*"],
+      "@scripts/*": ["joyas-block-theme/src/ts/*"]
+    }
+  },
+  "include": [
+    "joyas-block-theme/src/ts/**/*",
+    "joyas-block-theme/src/**/*.d.ts",
+    ".storybook/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "vendor"
+  ]
+}
